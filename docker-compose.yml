@@ -9,8 +9,6 @@ services:
       MYSQL_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - ./data/mysql:/var/lib/mysql
-      - ./:/docker-entrypoint-initdb.d
+      - ./init/:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
-    command: bash -c "rm -rf /var/lib/mysql/* && /entrypoint.sh mysqld"
